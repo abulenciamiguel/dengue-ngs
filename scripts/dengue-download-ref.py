@@ -127,9 +127,9 @@ run_cmd("tar -zxvf taxdump.tar.gz -C taxdump/")
 
 if not args.no_kraken:
     sys.stderr.write("Creating kraken2 database\n")
-    run_cmd(f"kraken2-build --threads {args.threads}  --download-taxonomy --skip-maps --db kraken2 --use-ftp")
+    run_cmd(f"kraken2-build --threads {args.threads}  --download-taxonomy --skip-maps --db kraken2")
     if args.add_human:
-        run_cmd(f"kraken2-build --threads {args.threads} --download-library human --db kraken2 --use-ftp")
+        run_cmd(f"kraken2-build --threads {args.threads} --download-library human --db kraken2")
     run_cmd("ls %s/ | parallel -j %s --bar kraken2-build --add-to-library %s/{} --db kraken2" % (kraken_ref_dir,args.threads,kraken_ref_dir))
     run_cmd(f"kraken2-build --build --db kraken2 --threads {args.threads}")
     run_cmd("kraken2-build --clean --db kraken2")
