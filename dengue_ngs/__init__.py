@@ -460,7 +460,7 @@ def filter_fastq_by_taxon(kraken_output: str,serotype: int,reads: str,output: st
     """
     Filter a fastq file by taxon.
     """
-    nodedump = expanduser("~")+"/.dengue-ngs/taxdump/nodes.dmp"
+    nodedump = expanduser("~")+"/dengue-ngs/taxdump/nodes.dmp"
     tree = TaxonTree(nodedump)
 
     include = [12637]
