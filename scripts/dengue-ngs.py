@@ -22,11 +22,11 @@ def main(args):
     if args.fix_ref and args.serotype_ref:
         sys.stderr.write("Cannot use both --fix-ref and --serotype-ref\n")
         sys.exit(1)
-    data_dir = os.path.expanduser('~')+"/.dengue-ngs/"
-    ref_dir = os.path.expanduser('~')+"/.dengue-ngs/ref/"
+    data_dir = os.path.expanduser('~')+"/dengue-ngs/"
+    ref_dir = os.path.expanduser('~')+"/dengue-ngs/ref/"
     if not args.kraken_db:
         args.kraken_db = f"{data_dir}/kraken2" 
-    ref_sourfile = os.path.expanduser('~')+"/.dengue-ngs/dengue.sig"
+    ref_sourfile = os.path.expanduser('~')+"/dengue-ngs/dengue.sig"
     if not os.path.exists(ref_dir) or not os.path.exists(ref_sourfile):
         sys.stderr.write("Reference files not found. Please run dengue-download-ref.py first.\n")
         sys.exit(1)
