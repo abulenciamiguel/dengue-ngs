@@ -61,7 +61,7 @@ def stream_fasta(f):
             seq+=l.strip()
     yield(header,seq,serotype)
 
-data_dir = os.path.expanduser('~')+"/.dengue-ngs/"
+data_dir = os.path.expanduser('~')+"/dengue-ngs/"
 if not os.path.exists(data_dir):
     os.makedirs(data_dir)
 os.chdir(data_dir)
@@ -112,7 +112,7 @@ with open("taxid.map",'w') as O:
         O.write("%s\t%s\n" % (name,id2tax[name]))
 
 sys.stderr.write("Creating sourmash signature\n")
-run_cmd("sourmash sketch dna -p scaled=10 ~/.dengue-ngs/ref/*.fasta --name-from-first -o dengue.sig")
+run_cmd("sourmash sketch dna -p scaled=10 ~/dengue-ngs/ref/*.fasta --name-from-first -o dengue.sig")
 # run_cmd("sourmash index dengue.sig ref/*.sig")
 
 if args.kmcp:
